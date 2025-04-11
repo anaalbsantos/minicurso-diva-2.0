@@ -1,0 +1,28 @@
+.blusinha-box {
+  border: 1px solid #404040;
+  border-radius: 20px;
+  width: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.blusinha-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+
+  h1 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
