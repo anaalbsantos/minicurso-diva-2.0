@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Blusinha from "./components/blusinha";
 import kitBlusinhas from "./assets/kit-blusinhas.png";
 import tubeTopRosa from "./assets/tube-top-rosa.png";
@@ -6,6 +7,18 @@ import "./App.css";
 import SearchBar from "./components";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const blusinhasList = [
+    { image: kitBlusinhas, price: "55,00", title: "Kit 4 blusinhas" },
+    { image: tubeTopRosa, price: "40,00", title: "Tube top rosa" },
+    { image: crocheVerde, price: "65,00", title: "Blusinha crochê verde" },
+  ];
+
+  const filteredBlusinhas = blusinhasList.filter((blusinha) =>
+    blusinha.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="app">
       <header className="header">
@@ -13,20 +26,17 @@ function App() {
       </header>
       <div className="content">
         <div className="search-bar-container">
-          <SearchBar />
+          <SearchBar onChange={(e) => setSearchTerm(e.target.value)} />
         </div>
         <div className="blusinhas-container">
-          <Blusinha
-            image={kitBlusinhas}
-            price="55,00"
-            title="Kit 4 blusinhas"
-          />
-          <Blusinha image={tubeTopRosa} price="40,00" title="Tube top rosa" />
-          <Blusinha
-            image={crocheVerde}
-            price="65,00"
-            title="Blusinha crochê verde"
-          />
+          {filteredBlusinhas.map((blusinha, index) => (
+            <Blusinha
+              key={index}
+              image={blusinha.image}
+              price={blusinha.price}
+              title={blusinha.title}
+            />
+          ))}
         </div>
       </div>
     </div>
