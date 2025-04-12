@@ -1,4 +1,4 @@
-# Minicurso 2.0
+# minicurso <div>a 2.0 🌸
 
 Esse repositório é destinado à segunda edição do minicurso oferecido para a turma intermediária.
 
